@@ -3,7 +3,9 @@ import Chart from "react-google-charts"
 import './styles.css';
 
 export default function Id(){
-  return(<Chart
+  return(
+  
+  <Chart
     width={'1200x'}
     height={'800px'}
     chartType="LineChart"
