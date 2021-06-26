@@ -1,6 +1,6 @@
 import './styles.css';
 import {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useHistory } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
 import {FiSearch} from 'react-icons/fi';
 import logo from '../../assets/logo.svg';
@@ -13,6 +13,7 @@ export default function Main(){
     const [isConnected, setIsConnected] = useState(socket.connected);
     const[id, setId] = useState('');
     const [flag, setFlag]= useState(false);
+    const history = useHistory();
 
     useEffect(()=> {
         socket.on('connect', () => {
@@ -29,13 +30,13 @@ export default function Main(){
     async function handleId(e){
         e.preventDefault();
         try{
-            const res = await api.post('/', {id});
+            //const res = await api.post('/', {id});
             localStorage.setItem('idNumber', id);
+            history.push('/id');
         }
         catch(err){
             alert('Falha no cadastro do item!')
         }
-        console.log(id)
     }
 
     return(

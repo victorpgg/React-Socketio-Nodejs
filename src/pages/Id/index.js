@@ -3,15 +3,19 @@ import Chart from "react-google-charts"
 import './styles.css';
 
 export default function Id(){
+  const id = localStorage.getItem('idNumber');
+
   return(
-  
+<body>
+  <h1>{id}</h1>
+
   <Chart
     width={'1200x'}
     height={'800px'}
     chartType="LineChart"
     loader={<div>Loading Chart</div>}
     data={[
-      ['', ''],
+      ['', id],
       [0, 0],
       [1, 10],
       [2, 23],
@@ -33,8 +37,10 @@ export default function Id(){
       vAxis: {
         title: 'Temperature',
       },
-    }}
-    rootProps={{ 'data-testid': '1' }}
-  />  )
+  }}
+  rootProps={{ 'data-testid': '1' }}
+/> 
+</body>
+    )
 
 }
