@@ -35,7 +35,7 @@ export default function Main(){
             history.push('/id');
         }
         catch(err){
-            alert('Falha no cadastro do item!')
+            alert('Falha ao validar número da peça!')
         }
     }
 
