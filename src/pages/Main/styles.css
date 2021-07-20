@@ -1,3 +1,33 @@
+.submit {
+    width: 100%;
+    height: 60px;
+    background: #434343;
+    border: 0;
+    border-radius: 8px;
+    color: #FFFF;
+    font-weight: 700;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter 0.2s;
+}
+
+.submit:hover {
+    filter: brightness(80%);
+}
+
+form input {
+    width: 100%;
+    height: 60px;
+    color: #3333;
+    border: 1px solid #DCDCE6;
+    border-radius: 8px;
+    padding: 0 24px;
+}
+
 .main-container {
     width: 100%;
     max-width: 1180px;
@@ -55,24 +85,31 @@
     align-items: stretch;
     background-color: #f1f1f1;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr; 
     grid-template-areas: "a b"
                         "c c"
 }
 
-.div-a {
+.container div {
     background-color: #2f98bb;
     border-radius: 8px;
     padding: 30px;
     margin: 10px;
     text-align: center;    
     font-size: 16px;
-    grid-area: a;
 }
 
-.div-a span{
+.container div span {
     font-size: 40px;
+}
+
+.div-a {    
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .div-a div{
@@ -86,11 +123,9 @@
     border-style: solid;    
     border-width: 12px;
     display: flex;
-    justify-items: center;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-content: center;
-    text-align: center;
 
 }
 
@@ -101,30 +136,19 @@
 }
 
 .div-b {
-    background-color: #2f98bb;
-    border-radius: 8px;
-    padding: 30px;
-    margin: 10px;
-    text-align: center;    
-    font-size: 16px;
     grid-area: b;
 }
 
-.div-b span{
-    font-size: 30px;
+.div-b form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content:center;
 }
 
 .div-c {
-    background-color: #2f98bb;
-    border-radius: 8px;
-    padding: 30px;
-    margin: 10px;
-    text-align: center;    
-    font-size: 16px;
     grid-area: c;
 }
-
-.div-c span{
-    font-size: 30px;
-}
-

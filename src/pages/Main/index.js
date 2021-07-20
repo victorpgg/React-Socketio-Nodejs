@@ -30,7 +30,7 @@ export default function Main(){
     async function handleId(e){
         e.preventDefault();
         try{
-            //const res = await api.post('/', {id});
+            await api.post('/', id);
             localStorage.setItem('idNumber', id);
             history.push('/id');
         }
@@ -59,11 +59,11 @@ export default function Main(){
                 </div>
                 <div class = "div-b">
                     <span>Aquecimento</span>
-                    <p>Ocupar espaço</p>
-                    <p>Ocupar espaço</p>
-                    <p>Ocupar espaço</p>
-                    <p>Ocupar espaço</p>
-                    <p>Ocupar espaço</p>
+                    <form onSubmit={handleId}>
+                    <input 
+                        placeholder="Número da peça"/>
+                    <button class="submit">Iniciar aquecimento</button>
+                </form>
                 </div>
                 <div class = "div-c">
                     <span>Consultar Gráficos</span>
