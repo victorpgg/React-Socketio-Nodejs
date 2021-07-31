@@ -54,22 +54,39 @@ export default function Main(){
                 <div class = "div-a">
                     <span>Temperatura</span>
                     <div>
-                        <p>95ºC</p>
+                        <p>{temperature}ºC</p>
                     </div>
+                    <span>Status</span>
+                        <table>
+                            <tr>
+                                <td>Comunicação:</td>
+                                <td>{ '' + isConnected }</td>
+                            </tr>
+                            <tr>
+                                <td>Presença de peça no tanque:</td>
+                                <td>{'' + flag }</td>
+                            </tr>
+                        </table>
                 </div>
                 <div class = "div-b">
                     <span>Aquecimento</span>
                     <form onSubmit={handleId}>
-                    <input 
-                        placeholder="Número da peça"/>
-                    <button class="submit">Iniciar aquecimento</button>
-                </form>
+                        <input placeholder="Número da peça"/>
+                        <button class="submit">Iniciar aquecimento</button>
+                    </form>
                 </div>
                 <div class = "div-c">
                     <span>Consultar Gráficos</span>
-                    <p>Connected: { '' + isConnected }</p>
-                    <p>Temperatura: {temperature}</p>
-                    <p>Flag: {'' + flag }</p>
+                    <div>                        
+                        <form>
+                            <p>Peça: </p>
+                            <input placeholder="Número da peça"/>
+                            <button class = "submit">Buscar</button>
+                        </form>
+                    </div>
+                    <div>
+                        <button class = "submit">Consultar Todos</button>
+                    </div>                    
                 </div>
             </div>         
         </div>

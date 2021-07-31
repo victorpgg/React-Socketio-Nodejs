@@ -1,5 +1,5 @@
 .submit {
-    width: 100%;
+    width: 80%;
     height: 60px;
     background: #434343;
     border: 0;
@@ -20,16 +20,22 @@
 }
 
 form input {
-    width: 100%;
+    width: 80%;
     height: 60px;
-    color: #3333;
+    color: #434343;
     border: 1px solid #DCDCE6;
     border-radius: 8px;
     padding: 0 24px;
 }
 
+table {
+    text-align: left;
+    padding: 20px;
+    width: 80%;
+}
+
 .main-container {
-    width: 100%;
+    width: 80%;
     max-width: 1180px;
     padding: 0 30px;
     margin: 32px auto;               
@@ -46,6 +52,7 @@ form input {
 
 .main-container header span {
     font-size: 20px;
+    padding: 10px;
     margin-left: 24px;
 }
 
@@ -94,10 +101,13 @@ form input {
 .container div {
     background-color: #2f98bb;
     border-radius: 8px;
-    padding: 30px;
+    padding: 10px;
     margin: 10px;
     text-align: center;    
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container div span {
@@ -130,7 +140,7 @@ form input {
 }
 
 .div-a div p{
-    font-size: 63px;
+    font-size: 54px;
     text-align: center;
     color: #0C6684;   
 }
@@ -151,4 +161,12 @@ form input {
 
 .div-c {
     grid-area: c;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.div-c p{
+    font-size: 26px;
 }
