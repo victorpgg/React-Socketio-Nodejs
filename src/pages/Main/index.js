@@ -27,10 +27,10 @@ export default function Main(){
         });
 
     }, []);
-    async function handleId(e){
+    function handleId(e){
         e.preventDefault();
         try{
-            await api.post('/', id);
+            api.post('/', {id});
             localStorage.setItem('idNumber', id);
             history.push('/id');
         }
@@ -47,7 +47,7 @@ export default function Main(){
                     <span>Sistema Supervisório para Sistema de Aquecimento de Fluidos Líquidos</span>
                     <p>Trabalho de Conclusão de Curso</p>
                     <p>Instituto Federal Fluminense - Campus Macaé</p>
-                    <p>Alunos: Flávia de Almeida Araujo e Galvone não sei seu nome todo</p>
+                    <p>Alunos: Flávia de Almeida Araujo e Victor Pinheiro Galvão Guimarães</p>
                 </div>
             </header>   
             <div class = "container">
@@ -71,7 +71,9 @@ export default function Main(){
                 <div class = "div-b">
                     <span>Aquecimento</span>
                     <form onSubmit={handleId}>
-                        <input placeholder="Número da peça"/>
+                        <input placeholder="Número da peça"
+                        value={id}
+                        onChange = { e => setId(e.target.value)}/>
                         <button class="submit">Iniciar aquecimento</button>
                     </form>
                 </div>
