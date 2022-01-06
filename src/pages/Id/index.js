@@ -8,24 +8,23 @@ import './styles.css';
 
 //import api from '../../services/api';
 const socket = socketIOClient('http://localhost:3334');
-
+const startTime = new Date();
 export default function Id(){
   const id = localStorage.getItem('idNumber');
-  const [chart, setChart] = useState([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-  const [time, setTime] = useState([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+  const [chart, setChart] = useState([0]);
+  const [time, setTime] = useState([0]);
   useEffect(()=> {
-    socket.on('chart', data => {
-        setChart(chart.shift())
-        setTime(time.shift())
-        setChart(chart.push(data.temperature));
-        setTime(time.push(data.time))
+    socket.on('Chart', async data => {
+        //setChart(chart.shift())
+        //setTime(time.shift())
+        setChart(arr => [...chart, data.temperature]);
+        setTime(arr => [...time, (new Date() - startTime)/1000]);
+        console.log(chart);
     });
-
 }, []);
   return(
 <body>
   <h1>{id}</h1>
-
   <Chart
     width={'1200x'}
     height={'800px'}
@@ -33,26 +32,26 @@ export default function Id(){
     loader={<div>Loading Chart</div>}
     data={[
       ['', id],
-      [time[time.lengt-19], chart[chart.length-19]],
-      [time[time.lengt-18], chart[chart.length-18]],
-      [time[time.lengt-17], chart[chart.length-17]],
-      [time[time.lengt-16], chart[chart.length-16]],
-      [time[time.lengt-15], chart[chart.length-15]],
-      [time[time.lengt-14], chart[chart.length-14]],
-      [time[time.lengt-13], chart[chart.length-13]],
-      [time[time.lengt-12], chart[chart.length-12]],
-      [time[time.lengt-11], chart[chart.length-11]],
-      [time[time.lengt-10], chart[chart.length-10]],
-      [time[time.lengt-9], chart[chart.length-9]],
-      [time[time.lengt-8], chart[chart.length-8]],
-      [time[time.lengt-7], chart[chart.length-7]],
-      [time[time.lengt-6], chart[chart.length-6]],
-      [time[time.lengt-5], chart[chart.length-5]],
-      [time[time.lengt-4], chart[chart.length-4]],
-      [time[time.lengt-3], chart[chart.length-3]],
-      [time[time.lengt-2], chart[chart.length-2]],
-      [time[time.lengt-1], chart[chart.length-1]],
-      [time[time.lengt], chart[chart.length]],
+      [time[time.length-20], chart[chart.length-20]],
+      [time[time.length-19], chart[chart.length-19]],
+      [time[time.length-18], chart[chart.length-18]],
+      [time[time.length-17], chart[chart.length-17]],
+      [time[time.length-16], chart[chart.length-16]],
+      [time[time.length-15], chart[chart.length-15]],
+      [time[time.length-14], chart[chart.length-14]],
+      [time[time.length-13], chart[chart.length-13]],
+      [time[time.length-12], chart[chart.length-12]],
+      [time[time.length-11], chart[chart.length-11]],
+      [time[time.length-10], chart[chart.length-10]],
+      [time[time.length-9], chart[chart.length-9]],
+      [time[time.length-8], chart[chart.length-8]],
+      [time[time.length-7], chart[chart.length-7]],
+      [time[time.length-6], chart[chart.length-6]],
+      [time[time.length-5], chart[chart.length-5]],
+      [time[time.length-4], chart[chart.length-4]],
+      [time[time.length-3], chart[chart.length-3]],
+      [time[time.length-2], chart[chart.length-2]],
+      [time[time.length-1], chart[chart.length-1]],
     ]}
     options={{
       curveType:'function',
