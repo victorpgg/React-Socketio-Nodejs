@@ -6,7 +6,7 @@ import socketIOClient from 'socket.io-client';
 
 import './styles.css';
 
-//import api from '../../services/api';
+//import api from '../../services/api'; teste
 const socket = socketIOClient('http://localhost:3334');
 const startTime = new Date();
 export default function Id(){
