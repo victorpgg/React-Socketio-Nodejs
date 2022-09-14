@@ -12,14 +12,14 @@ const socket = socketIOClient('http://localhost:3334');
 const startTime = new Date();
 export default function Id(){
   const id = localStorage.getItem('idNumber');
-  const [chart, setChart] = useState([0]);
-  const [time, setTime] = useState([0]);
+  const [chart, setChart] = useState([]);
+  const [time, setTime] =useState([]);
   useEffect(()=> {
     socket.on('Chart', async data => {
         //setChart(chart.shift())
         //setTime(time.shift())
-        setChart(arr => [...chart, data.temperature]);
-        setTime(arr => [...time, (new Date() - startTime)/1000]);
+        setChart(prevChart => [...prevChart, data.temperature]);
+        setTime(prevTime => [...prevTime, ((new Date() - startTime)/1000)]);
         console.log(chart);
     });
 }, []);
