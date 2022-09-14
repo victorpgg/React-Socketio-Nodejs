@@ -13,13 +13,22 @@ const startTime = new Date();
 export default function Id(){
   const id = localStorage.getItem('idNumber');
   const [chart, setChart] = useState([]);
+<<<<<<< HEAD
   const [time, setTime] =useState([]);
+=======
+  const [time, setTime] = useState([0]);
+>>>>>>> 852178b4422d7315f0c8c833f1eed18d21726440
   useEffect(()=> {
     socket.on('Chart', async data => {
         //setChart(chart.shift())
         //setTime(time.shift())
+<<<<<<< HEAD
         setChart(prevChart => [...prevChart, data.temperature]);
         setTime(prevTime => [...prevTime, ((new Date() - startTime)/1000)]);
+=======
+        setChart(chart => [...chart, data.temperature]);
+        setTime(time => [...time, (new Date() - startTime)/1000]);
+>>>>>>> 852178b4422d7315f0c8c833f1eed18d21726440
         console.log(chart);
     });
 }, []);
