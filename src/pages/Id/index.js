@@ -1,6 +1,9 @@
 import React from 'react';
 import Chart from "react-google-charts"
 import {useEffect, useState} from 'react';
+import { Link , useHistory } from 'react-router-dom';
+import {FiPower} from 'react-icons/fi';
+
 
 import socketIOClient from 'socket.io-client';
 
@@ -10,31 +13,32 @@ import './styles.css';
 
 const socket = socketIOClient('http://localhost:3334');
 const startTime = new Date();
+
 export default function Id(){
+  const history = useHistory();
   const id = localStorage.getItem('idNumber');
-  const [chart, setChart] = useState([]);
-<<<<<<< HEAD
-  const [time, setTime] =useState([]);
-=======
+  const [chart, setChart] = useState([0]);
   const [time, setTime] = useState([0]);
->>>>>>> 852178b4422d7315f0c8c833f1eed18d21726440
   useEffect(()=> {
     socket.on('Chart', async data => {
         //setChart(chart.shift())
         //setTime(time.shift())
-<<<<<<< HEAD
         setChart(prevChart => [...prevChart, data.temperature]);
         setTime(prevTime => [...prevTime, ((new Date() - startTime)/1000)]);
-=======
-        setChart(chart => [...chart, data.temperature]);
-        setTime(time => [...time, (new Date() - startTime)/1000]);
->>>>>>> 852178b4422d7315f0c8c833f1eed18d21726440
         console.log(chart);
     });
 }, []);
+function handleLogout(){
+  localStorage.clear();
+  history.push('/');
+}
   return(
 <body>
+
   <h1>{id}</h1>
+  <button onClick={handleLogout} type="button">
+    <FiPower size={18} color='#E02041'/>
+  </button>
   <Chart
     width={'1200x'}
     height={'800px'}
