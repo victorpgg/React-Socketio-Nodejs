@@ -19,6 +19,23 @@
     filter: brightness(80%);
 }
 
+.submit-all {
+     
+    border: 0;  
+    font-weight: 700;    
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color:#2f98bb;
+    font-size: 20px;    
+    transition: filter 0.2s;
+    margin-top: 15px;
+}
+
+.submit-all:hover {
+    filter: brightness(80%);
+}
+
 form input {
     width: 80%;
     height: 60px;
@@ -32,6 +49,12 @@ table {
     text-align: left;
     padding: 20px;
     width: 80%;
+}
+
+form table {
+    text-align: left;
+    padding: 20px;
+    width: 100%;
 }
 
 .main-container {
@@ -161,6 +184,7 @@ table {
 
 .div-c {
     grid-area: c;
+    height: 300px;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -170,3 +194,5 @@ table {
 .div-c p{
     font-size: 26px;
 }
+
+

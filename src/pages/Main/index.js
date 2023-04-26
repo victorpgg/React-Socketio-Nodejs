@@ -80,15 +80,12 @@ export default function Main(){
                 <div class = "div-c">
                     <span>Consultar Gráficos</span>
                     <div>                        
-                        <form>
-                            <p>Peça: </p>
-                            <input placeholder="Número da peça"/>
-                            <button class = "submit">Buscar</button>
+                        <form>                     
+                            <input placeholder="Número da peça"/>                               
+                            <button class = "submit">Buscar</button>                                
+                            <button class = "submit-all">Consultar Todos</button>                         
                         </form>
-                    </div>
-                    <div>
-                        <button class = "submit">Consultar Todos</button>
-                    </div>                    
+                    </div>                   
                 </div>
             </div>         
         </div>
