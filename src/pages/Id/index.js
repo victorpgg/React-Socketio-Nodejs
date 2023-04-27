@@ -1,13 +1,11 @@
 import React from 'react';
 import Chart from "react-google-charts"
 import {useEffect, useState} from 'react';
-import { Link , useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import socketIOClient from 'socket.io-client';
 import './styles.css';
 import logo from '../../assets/logo.svg';
-
-//import api from '../../services/api';
 
 const socket = socketIOClient('http://localhost:3334');
 const startTime = new Date();
@@ -55,8 +53,8 @@ function handleLogout(){
           </div>          
         </div>
         <Chart
-          width={'1180x'}
-          height={'740px'}
+          width={'100%'}
+          height={'500px'}
           chartType="LineChart"
           loader={<div>O gráfico está sendo carregado, por favor aguarde.</div>}
           data={[
@@ -84,6 +82,9 @@ function handleLogout(){
           ]}
           options={{
             curveType:'function',
+            chartArea:{width: '90%', height: '80%', backgroundColor:'white'},
+            legend: { position: 'top', alignment: 'start' },
+            backgroundColor: '#f0f0f5',
             hAxis: {
               title: 'Time',
             },

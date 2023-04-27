@@ -1,8 +1,7 @@
 import './styles.css';
 import {useEffect, useState} from 'react';
-import { Link , useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
-import {FiSearch} from 'react-icons/fi';
 import logo from '../../assets/logo.svg';
 
 import api from '../../services/api';
@@ -76,16 +75,6 @@ export default function Main(){
                         onChange = { e => setId(e.target.value)}/>
                         <button class="submit">Iniciar aquecimento</button>
                     </form>
-                </div>
-                <div class = "div-c">
-                    <span>Consultar Gráficos</span>
-                    <div>                        
-                        <form>                     
-                            <input placeholder="Número da peça"/>                               
-                            <button class = "submit">Buscar</button>                                
-                            <button class = "submit-all">Consultar Todos</button>                         
-                        </form>
-                    </div>                   
                 </div>
             </div>         
         </div>
