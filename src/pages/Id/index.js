@@ -15,13 +15,15 @@ export default function Id(){
   const id = localStorage.getItem('idNumber');
   const [chart, setChart] = useState([0]);
   const [time, setTime] = useState([0]);
+  const [flag, setFlag]= useState(false);
   useEffect(()=> {
     socket.on('Chart', async data => {
-        //setChart(chart.shift())
-        //setTime(time.shift())
         setChart(prevChart => [...prevChart, data.temperature]);
         setTime(prevTime => [...prevTime, ((new Date() - startTime)/1000)]);
         console.log(chart);
+    });
+    socket.on('flag', data => {
+      setFlag(true);
     });
 }, []);
 function handleLogout(){
@@ -50,7 +52,13 @@ function handleLogout(){
           </div>
           <div class = 'container-inline'>
             <p>{id}</p>
-          </div>          
+          </div> 
+          <div class = 'container-inline'>
+            <h1>Presença de peça no tanque:</h1>
+          </div> 
+          <div class = 'container-inline'>
+            <p>{'' + flag }</p>
+          </div> 
         </div>
         <Chart
           width={'100%'}

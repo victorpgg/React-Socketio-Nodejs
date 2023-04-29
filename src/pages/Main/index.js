@@ -11,7 +11,6 @@ export default function Main(){
     const [temperature, setTemperature] = useState();
     const [isConnected, setIsConnected] = useState(socket.connected);
     const[id, setId] = useState('');
-    const [flag, setFlag]= useState(false);
     const history = useHistory();
 
     useEffect(()=> {
@@ -21,10 +20,6 @@ export default function Main(){
         socket.on('temperature', data => {
             setTemperature(data);
         });
-        socket.on('flag', data => {
-            setFlag(true);
-        });
-
     }, []);
     function handleId(e){
         e.preventDefault();
@@ -60,11 +55,7 @@ export default function Main(){
                             <tr>
                                 <td>Comunicação:</td>
                                 <td>{ '' + isConnected }</td>
-                            </tr>
-                            <tr>
-                                <td>Presença de peça no tanque:</td>
-                                <td>{'' + flag }</td>
-                            </tr>
+                            </tr>                            
                         </table>
                 </div>
                 <div class = "div-b">
